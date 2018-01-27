@@ -1,0 +1,36 @@
+<div class="wrapper">
+
+    <app-header>Loading...</app-header>
+
+    <menu-aside>Loading...</menu-aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <toaster-container [toasterconfig]="toastrConfig"></toaster-container>
+        <section class="content-header">
+            <h1>
+                Welcome to WanVET
+                <small>Thanks a lot for choosing us.</small>
+            </h1>
+            <!--<ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+                <li class="active">Here</li>
+            </ol>-->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <router-outlet></router-outlet>
+        </section><!-- /.content -->
+    </div><!-- /.content-wrapper -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <!-- To the right -->
+        <div class="pull-right hidden-xs">
+            Razvan Dumitru - Master's Degree
+        </div>
+        <!-- Default to the left -->
+        <strong>Copyright &copy; 2017 <a href="javascript:void(0);" routerLink="/">WanVET Clinic</a>.</strong> All rights reserved.
+    </footer>
+</div>

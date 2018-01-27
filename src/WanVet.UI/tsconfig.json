@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "baseUrl": "./src",
+    "paths": {},
+    "lib": [
+      "dom",
+      "es6"
+    ],
+    "types": [
+      "hammerjs",
+      "node",
+      "source-map",
+      "uglify-js",
+      "webpack"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}

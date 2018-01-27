@@ -1,0 +1,87 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">Manage Appointment</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form novalidate
+                  (ngSubmit)="onSubmit()"
+                  [formGroup]="appointmentManageForm">
+                <div class="box-body">
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label>Appointment</label>
+                            <ng-select #appoitmentsInput [allowClear]="true"
+                                       (selected)="selectedAppointment($event)"
+                                       (removed)="removedAppointment($event)"
+                                       (typed)="typedAppointment($event)"
+                                       placeholder="No appointment selected">
+                            </ng-select>
+                            <span class="help-block" *ngIf="(appointmentManageForm.get('appointmentId').touched ||
+                                                         appointmentManageForm.get('appointmentId').dirty) &&
+                                                         appointmentManageForm.get('appointmentId').errors">
+                                <span *ngIf="appointmentForm.get('appointmentId').errors.required">
+                                    Please select an appointment.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         [ngClass]="{'has-error': (appointmentManageForm.get('diagnostic').touched ||
+                                              appointmentManageForm.get('diagnostic').dirty) &&
+                                              !appointmentManageForm.get('diagnostic').valid }">
+                        <div class="col-xs-12">
+                            <label for="diagnosticId">Diagnostic</label>
+                            <textarea class="form-control" id="diagnosticId"
+                                      placeholder="(Required)"
+                                      formControlName="diagnostic"></textarea>
+                            <span class="help-block" *ngIf="(appointmentManageForm.get('diagnostic').touched ||
+                                                         appointmentManageForm.get('diagnostic').dirty) &&
+                                                         appointmentManageForm.get('diagnostic').errors">
+                                <span *ngIf="appointmentManageForm.get('diagnostic').errors.required">
+                                    Please enter at least one diagnostic.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         [ngClass]="{'has-error': (appointmentManageForm.get('medicalHistory').touched ||
+                                              appointmentManageForm.get('medicalHistory').dirty) &&
+                                              !appointmentManageForm.get('medicalHistory').valid }">
+                        <div class="col-xs-12">
+                            <label for="medicalHistoryId">Medical History</label>
+                            <textarea class="form-control" id="medicalHistoryId"
+                                      placeholder="(Required)"
+                                      formControlName="medicalHistory"></textarea>
+                            <span class="help-block" *ngIf="(appointmentManageForm.get('medicalHistory').touched ||
+                                                         appointmentManageForm.get('medicalHistory').dirty) &&
+                                                         appointmentManageForm.get('medicalHistory').errors">
+                                <span *ngIf="appointmentManageForm.get('medicalHistory').errors.required">
+                                    Please enter medical history.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <div class="col-xs-12">
+                        <button class="btn btn-success"
+                                type="submit"
+                                [disabled]="!appointmentManageForm.valid">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

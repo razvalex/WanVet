@@ -1,0 +1,101 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">Add Appointment</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form novalidate
+                  (ngSubmit)="onSubmit()"
+                  [formGroup]="appointmentForm">
+                <div class="box-body">
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label>Pet</label>
+                            <ng-select [items]="pets" [allowClear]="true"
+                                       (selected)="selectedPet($event)"
+                                       (removed)="removedPet($event)"
+                                       placeholder="No pet selected">
+                            </ng-select>
+                            <span class="help-block" *ngIf="(appointmentForm.get('petId').touched ||
+                                                         appointmentForm.get('petId').dirty) &&
+                                                         appointmentForm.get('petId').errors">
+                                <span *ngIf="appointmentForm.get('petId').errors.required">
+                                    Please select a pet.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <label>Date</label>
+                            <my-date-picker [options]="myDatePickerOptions"
+                                            formControlName="date"></my-date-picker>
+                            <span class="help-block" *ngIf="(appointmentForm.get('date').touched ||
+                                                         appointmentForm.get('date').dirty) &&
+                                                         appointmentForm.get('date').errors">
+                                <span *ngIf="appointmentForm.get('date').errors.required">
+                                    Please enter appointment's date.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-9">
+                            <label>Doctor</label>
+                            <ng-select #doctorsInput [allowClear]="true"
+                                       (selected)="selectedDoctor($event)"
+                                       (removed)="removedDoctor($event)"
+                                       (typed)="typedDoctor($event)"
+                                       placeholder="No doctor selected"
+                                       >
+                            </ng-select>
+                            <span class="help-block" *ngIf="(appointmentForm.get('calendarId').touched ||
+                                                         appointmentForm.get('calendarId').dirty) &&
+                                                         appointmentForm.get('calendarId').errors">
+                                <span *ngIf="appointmentForm.get('calendarId').errors.required">
+                                    Please select a doctor.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-6">
+                            <label>Starting Time</label>
+                            <ng-select #startingTimeInput [allowClear]="true"
+                                       (selected)="selectedStartingTime($event)"
+                                       (removed)="removedStartingTime($event)"
+                                       (typed)="typedStartingTime($event)"
+                                       placeholder="No starting time selected">
+                            </ng-select>
+                            <span class="help-block" *ngIf="(appointmentForm.get('startingTime').touched ||
+                                                         appointmentForm.get('startingTime').dirty) &&
+                                                         appointmentForm.get('startingTime').errors">
+                                <span *ngIf="appointmentForm.get('startingTime').errors.required">
+                                    Please select a starting time.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                        <!-- /.box-body -->
+
+                        <div class="box-footer">
+                            <div class="col-xs-12">
+                                <button class="btn btn-success"
+                                        type="submit"
+                                        [disabled]="!appointmentForm.valid">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+</form>
+        </div>
+    </div>
+</div>

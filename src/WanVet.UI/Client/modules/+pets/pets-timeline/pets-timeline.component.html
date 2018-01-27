@@ -1,0 +1,43 @@
+<div class="box box-default">
+    <div class="box-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="users-list clearfix" *ngIf="!loading">
+                    <li>
+                        <img src="{{pet.profileImageUrl}}" alt="{{pet.name}} Profile Image">
+                        <a class="users-list-name">{{pet.name}}</a>
+                        <span class="users-list-date">{{pet.species}}, {{pet.breed}}, {{pet.sex}}</span>
+                    </li>
+                </ul>
+                <ul class="timeline" *ngIf="!loading">
+                    <li *ngFor="let appointment of pet.appointments">
+                        <i class="fa fa-check-circle-o bg-green" *ngIf="appointment.medicalHistory"></i>
+
+                        <i class="fa fa-info-circle bg-green" *ngIf="!appointment.medicalHistory"></i>
+
+                        <div class="timeline-item">
+                            <span class="time"><i class="fa fa-clock-o"></i> {{ appointment.startingTime | date :'medium' }} </span>
+
+                            <h3 class="timeline-header" *ngIf="appointment.medicalHistory">
+                                Appointment completed. Diagnostic and medical history record updated.
+                            </h3>
+
+                            <h3 class="timeline-header" *ngIf="!appointment.medicalHistory">
+                                We are looking forward to meeting you and your beloved pet.
+                            </h3>
+
+                            <div class="timeline-body" *ngIf="appointment.medicalHistory">
+                                {{appointment.diagnostic}}
+                                <br />
+                                {{appointment.medicalHistory}}
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fa fa-clock-o bg-gray"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

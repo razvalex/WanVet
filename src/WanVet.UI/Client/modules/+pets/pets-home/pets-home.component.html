@@ -1,0 +1,18 @@
+
+<div class="row">
+    <div class="col-sm-4" *ngFor="let card of cards">
+        <div class="info-box">
+            <a routerLink="{{card.route}}">
+                <span class="info-box-icon {{card.bg}}">
+                    <i class="{{card.icon}}"></i>
+                </span>
+            </a>
+            <div class="info-box-content">
+                <span class="info-box-text">{{card.title}}</span>
+                <span class="info-box-number">{{card.description}}</span>
+
+            </div>
+            <!-- /.info-box-content -->
+        </div>
+    </div>
+</div>

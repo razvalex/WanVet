@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Imgur.API" Version="4.0.1" />
+    <PackageReference Include="MassTransit" Version="4.0.0.1216-develop" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="4.0.0.1216-develop" />
+    <PackageReference Include="refit" Version="3.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WanVet.Messaging\WanVet.Messaging.csproj" />
+  </ItemGroup>
+
+</Project>

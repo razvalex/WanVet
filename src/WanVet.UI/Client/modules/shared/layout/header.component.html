@@ -1,0 +1,33 @@
+﻿<!-- Main Header -->
+<header class="main-header">
+    <!-- Logo -->
+    <a href="#" routerLink="/" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>W</b>VET</span> <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>Wan</b>VET</span>
+    </a>
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+        <!-- Sidebar toggle button-->
+        <a href="javascript:void(0);" class="sidebar-toggle" data-toggle="offcanvas"
+           role="button">
+            <span class="sr-only">Toggle navigation</span>
+        </a>
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav" *ngIf="authService.isAuthorized">
+                <!-- Messages: style can be found in dropdown.less-->
+                <li class="dropdown messages-menu messageBox"></li>
+                <!-- User Account Menu -->
+                <li class="dropdown user user-menu userBox"></li>
+            </ul>
+            <ul class="nav navbar-nav" *ngIf="!authService.isAuthorized">
+                <li>
+                    <a href="javascript:void(0);" (click)="authService.authorize()">
+                        <i class="fa fa-sign-in"></i> Login
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="4.0.0.1216-develop" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="4.0.0.1216-develop" />
+  </ItemGroup>
+
+</Project>

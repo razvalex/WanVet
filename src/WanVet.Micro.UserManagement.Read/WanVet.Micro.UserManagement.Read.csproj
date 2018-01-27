@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
+    <PackageReference Include="DasMulli.Win32.ServiceUtils" Version="1.0.1" />
+    <PackageReference Include="MassTransit" Version="4.0.0.1216-develop" />
+    <PackageReference Include="MassTransit.Autofac" Version="4.0.0.1216-develop" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="4.0.0.1216-develop" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Owin" Version="1.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="1.1.2" />
+    <PackageReference Include="Nancy" Version="2.0.0-clinteastwood" />
+    <PackageReference Include="Nancy.Bootstrappers.Autofac" Version="2.0.0-clinteastwood" />
+    <PackageReference Include="NETCore.RedisKit" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WanVet.Infrastructure.Read\WanVet.Infrastructure.Read.csproj" />
+    <ProjectReference Include="..\WanVet.Messaging\WanVet.Messaging.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.0" />
+    <PackageReference Include="DasMulli.Win32.ServiceUtils" Version="1.0.1" />
+    <PackageReference Include="MassTransit" Version="4.0.0.1216-develop" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="4.0.0.1216-develop" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WanVet.Messaging\WanVet.Messaging.csproj" />
+  </ItemGroup>
+
+</Project>

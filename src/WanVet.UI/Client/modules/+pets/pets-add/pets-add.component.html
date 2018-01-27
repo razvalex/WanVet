@@ -1,0 +1,151 @@
+<div class="row">
+    <div class="col-sm-12">
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">Add Pet</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form novalidate
+                  (ngSubmit)="onSubmit()"
+                  [formGroup]="petForm">
+                <div class="box-body">
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <image-upload url="/api/files"
+                                          [max]="1"
+                                          [headers]="getHeaders()"
+                                          [buttonCaption]="'Select Profile Image!'"
+                                          [dropBoxMessage]="'Drop your image here!'"
+                                          [extensions]="['jpg','png','gif']"
+                                          (onFileUploadFinish)="profileImageUploaded($event)"
+                                          (onRemove)="profileImageRemoved($event)"></image-upload>
+                            <span class="help-block" *ngIf="(petForm.get('profileImageUrl').touched ||
+                                                         petForm.get('profileImageUrl').dirty) &&
+                                                         petForm.get('profileImageUrl').errors">
+                                <span *ngIf="petForm.get('profileImageUrl').errors.required">
+                                    Please add pet's profile image.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-3">
+                            <label>Birth Date</label>
+                            <my-date-picker [options]="myDatePickerOptions"
+                                            formControlName="birthDate"></my-date-picker>
+                            <span class="help-block" *ngIf="(petForm.get('birthDate').touched ||
+                                                         petForm.get('birthDate').dirty) &&
+                                                         petForm.get('birthDate').errors">
+                                <span *ngIf="petForm.get('birthDate').errors.required">
+                                    Please enter pet's birth date.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         [ngClass]="{'has-error': (petForm.get('name').touched ||
+                                              petForm.get('name').dirty) &&
+                                              !petForm.get('name').valid }">
+                        <div class="col-xs-12">
+                            <label for="nameId">Name</label>
+                            <input class="form-control"
+                                   id="nameId"
+                                   type="text"
+                                   placeholder="(Required)"
+                                   formControlName="name" />
+                            <span class="help-block" *ngIf="(petForm.get('name').touched ||
+                                                         petForm.get('name').dirty) &&
+                                                         petForm.get('name').errors">
+                                <span *ngIf="petForm.get('name').errors.required">
+                                    Please enter a pet name.
+                                </span>
+                                <span *ngIf="petForm.get('name').errors.minlength">
+                                    Pet name must be longer than 3 characters.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <label for="sexRadios">Species</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" formControlName="species" id="speciesRadios" value="cat" checked="">
+                                    Cat
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" formControlName="species" id="speciesRadios" value="dog" checked="">
+                                    Dog
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <label for="sexRadios">Sex</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" formControlName="sex" id="sexRadios" value="male" checked="">
+                                    Male
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" formControlName="sex" id="sexRadios" value="female" checked="">
+                                    Female
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group"
+                         [ngClass]="{'has-error': (petForm.get('breed').touched ||
+                                              petForm.get('breed').dirty) &&
+                                              !petForm.get('breed').valid }">
+                        <div class="col-xs-12">
+                            <label for="breedId">Breed</label>
+                            <input class="form-control"
+                                   id="breedId"
+                                   type="text"
+                                   placeholder="(Required)"
+                                   formControlName="breed" />
+                            <span class="help-block" *ngIf="(petForm.get('breed').touched ||
+                                                         petForm.get('breed').dirty) &&
+                                                         petForm.get('breed').errors">
+                                <span *ngIf="petForm.get('breed').errors.required">
+                                    Please enter pet's breed.
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-4 col-sm-9">
+                            <label for="colorId">Color</label>
+                            <input type="text" [(colorPicker)]="color" (colorPickerChange)="onColorPickerChanged($event)" [style.background]="color" class="form-control" formControlName="colorHex" id="colorId" />
+                        </div>
+                    </div>
+         
+                </div>
+                <!-- /.box-body -->
+
+                <div class="box-footer">
+                    <div class="col-xs-12">
+                        <button class="btn btn-success"
+                                type="submit"
+                                [disabled]="!petForm.valid">
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
